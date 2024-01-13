@@ -1,17 +1,16 @@
-<main class="main">  
-    <div class="main__top">
-        <div class="main__top__left">
-          <div class="main__top__left--big">Everything you ever<span class="main__top__left--red"> wanted to know </span>about your website...</div>
-          <div class="main__top__left--medium">...but your analytics never told you.</div>
-          <div class="main__top__left--normal">Numbers tell you what’s happening. Hotjar’s visual insights tell you why. So you can make the changes that matter.</div>
-          <div class="main__top__left__btn">
-            <span class="btn--blue">Let's Download The App</span>
-          </div>
-         
-        </div>
-        <div class="main__top__right">
-          <img src="../../assets/images/weekend.jpg" alt="">
-        </div>
-    </div>
-</main>
+<div class="main">
+  <select id="myDropdown" (change)="onFloorSelected($event)">
+    <option value="0">Floor 1</option>
+    <option value="1">Floor 2</option>
+    <option value="2">Floor 3</option>
+    <option value="3">Floor 4</option>
+  </select>
+</div>
 
+<div class="main">
+  <canvas #canvas id="Canvas" width="700" height="700"></canvas>
+</div>
+
+<div class="main">
+  {{room?.type ?? "Corridoor"}}
+</div>
