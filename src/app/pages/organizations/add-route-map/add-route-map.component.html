@@ -1,0 +1,43 @@
+<div class="form-container">
+    <form [formGroup]="addOrUpdate" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Route Name:</label>
+        <input type="text" id="name" formControlName="name">
+      </div>
+    
+      <div class="dropdown-container">
+        <app-dropdown [items]="dropdownItems" [thisControl]="originControl"></app-dropdown>
+      </div>
+    
+      <div class="dropdown-container">
+        <app-dropdown [items]="dropdownItems" [thisControl]="destinationControl"></app-dropdown>
+      </div>
+    
+      <button type="submit" [disabled]="addOrUpdate.invalid">Submit</button>
+    </form>
+</div>
+
+
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Origin ID</th>
+        <th>Destination ID</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let route of routes">
+        <td>{{ route.name }}</td>
+        <td>{{ route.id }}</td>
+        <td>{{ nameOfDropdowns(route.originId) }}</td>
+        <td>{{ nameOfDropdowns(route.destinationId) }}</td>
+        <td>
+          <button (click)="editRoute(route)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+  

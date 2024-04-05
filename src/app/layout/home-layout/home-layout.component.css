@@ -7,3 +7,16 @@
     color: white;
     text-align: center;
  }
+
+ .container {
+    scroll-behavior: smooth;
+    margin-bottom: 100px;
+ }
+
+ app-header {
+    color: #fff; 
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}

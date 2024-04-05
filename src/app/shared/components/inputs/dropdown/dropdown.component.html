@@ -1,0 +1,8 @@
+<div class="dropdown-container">
+    <select [formControl]="thisControl">
+      <option value="0" disabled selected>Select an option</option>
+      <option *ngFor="let item of items" [value]="item.id">{{ item.name }}</option>
+    </select>
+    <div class="dropdown-arrow"></div>
+</div>
+  

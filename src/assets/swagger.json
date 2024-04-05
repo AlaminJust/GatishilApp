@@ -1,0 +1,75 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Delete your account"
+    },
+    "paths": {
+      "/api/user-management/login": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "UserName",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Password",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/user-management/delete/{phoneNumber}": {
+        "delete": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "phoneNumber",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "Bearer": {
+          "type": "http",
+          "description": "Please enter token",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    },
+    "security": [
+      {
+        "Bearer": [ ]
+      }
+    ]
+  }
