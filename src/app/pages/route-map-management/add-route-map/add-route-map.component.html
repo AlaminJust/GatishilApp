@@ -13,7 +13,7 @@
         <app-dropdown [items]="dropdownItems" [thisControl]="destinationControl"></app-dropdown>
       </div>
     
-      <button type="submit" [disabled]="addOrUpdate.invalid">Submit</button>
+      <button type="submit" [disabled]="addOrUpdate.invalid">{{editText$|async}}</button>
     </form>
 </div>
 
@@ -35,9 +35,9 @@
         <td>{{ nameOfDropdowns(route.originId) }}</td>
         <td>{{ nameOfDropdowns(route.destinationId) }}</td>
         <td>
-          <button (click)="editRoute(route)">Edit</button>
+          <button (click)="editRoute(route)" class="mr-2">Edit</button>
+          <button (click)="addLocation(route)">Add Location</button>
         </td>
       </tr>
     </tbody>
 </table>
-  

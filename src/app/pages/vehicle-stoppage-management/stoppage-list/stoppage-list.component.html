@@ -1,0 +1,19 @@
+<div class="name-button">
+    <h2>Names and IDs Table</h2>
+    <button (click)="addStoppage()">Add stoppage</button>
+</div>
+
+<table class="custom-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of stoppages">
+            <td>{{ item.name }}</td>
+            <td>{{ item.id }}</td>
+        </tr>
+    </tbody>
+</table>

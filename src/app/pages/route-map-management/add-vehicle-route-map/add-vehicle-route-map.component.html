@@ -1,0 +1,41 @@
+<form [formGroup]="addOrUpdate" (ngSubmit)="onSubmit()" class="custom-form">
+    <div class="form-group">
+        <label for="vehicleId" class="form-label">Vehicle ID:</label>
+        <input type="number" id="vehicleId" formControlName="vehicleId" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="order" class="form-label">Order:</label>
+        <input type="number" id="order" formControlName="order" class="form-control">
+    </div>
+    <div class="form-group">
+        <app-dropdown [items]="routes" [thisControl]="routeMapControl" class="dropdown-control"></app-dropdown>
+    </div>
+    <button type="submit" [disabled]="addOrUpdate.invalid" class="submit-button">Submit</button>
+</form>
+
+
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Order</th>
+        <th>Origin ID</th>
+        <th>Destination ID</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let route of vehicleRoutes">
+        <td>{{ route.name }}</td>
+        <td>{{ route.id }}</td>
+        <td>{{ route.order }}</td>
+        <td>{{ nameOfDropdowns(route.originId) }}</td>
+        <td>{{ nameOfDropdowns(route.destinationId) }}</td>
+        <td>
+          <button (click)="addLocation(route)">Add Location</button>
+          <button class="delete" (click)="delete(route)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+</table>

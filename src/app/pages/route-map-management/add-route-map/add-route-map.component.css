@@ -1,0 +1,85 @@
+/* CSS for the form container */
+.form-container {
+    max-width: 400px;
+    margin: 20px auto 0px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .mr-2{
+    margin-right: 2px;
+  }
+  
+  /* CSS for form labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* CSS for form input fields */
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* CSS for dropdown container */
+  .dropdown-container {
+    margin-bottom: 10px;
+  }
+  
+  /* CSS for submit button */
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+
+  /* CSS for table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  /* CSS for table headers */
+  th {
+    background-color: #f2f2f2;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* CSS for table cells */
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  /* CSS for table rows */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* CSS for table rows on hover */
+  tr:hover {
+    background-color: #ddd;
+  }
+  

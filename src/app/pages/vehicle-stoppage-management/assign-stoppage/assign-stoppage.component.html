@@ -1,0 +1,14 @@
+<form [formGroup]="addOrUpdate" (ngSubmit)="onSubmit()" class="custom-form">
+    <div class="form-group">
+        <label for="order">Order:</label>
+        <input type="number" id="order" formControlName="order" class="form-control">
+    </div>
+    <div class="form-group">
+        <app-dropdown [items]="dropdownItems" [thisControl]="vehicleStoppageControl"></app-dropdown>
+    </div>
+    <div class="form-group">
+        <label for="vehicleId">Vehicle ID:</label>
+        <input type="number" id="vehicleId" formControlName="vehicleId" class="form-control">
+    </div>
+    <button type="submit" [disabled]="addOrUpdate.invalid" class="submit-button">Submit</button>
+</form>

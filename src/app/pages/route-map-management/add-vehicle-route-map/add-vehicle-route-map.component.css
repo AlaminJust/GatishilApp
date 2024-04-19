@@ -1,55 +1,49 @@
-/* CSS for the form container */
-.form-container {
+.custom-form {
     max-width: 400px;
-    margin: 20px auto 0px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* CSS for form labels */
-  label {
+    margin: 30px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-  }
-  
-  /* CSS for form input fields */
-  input[type="text"] {
+}
+
+.form-control {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  /* CSS for dropdown container */
-  .dropdown-container {
-    margin-bottom: 10px;
-  }
-  
-  /* CSS for submit button */
-  button {
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
+    margin-right: 5px;
+}
+
+button.delete{
+    background-color: red !important;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
 
   /* CSS for table */
-table {
+  table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;

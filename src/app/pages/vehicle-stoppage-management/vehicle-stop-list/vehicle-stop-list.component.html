@@ -1,0 +1,60 @@
+<div class="stop-container">
+    <div class="vehicle-list-header">
+      <h2>Vehicle stoppage</h2>
+      <div (click)="gotoAssignStoppage()">
+        <button>Assign Stoppage</button>
+      </div>
+    </div>
+    <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+          <mat-cell *matCellDef="let stoppage">{{ stoppage.id }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="stoppageDistanceFromDhaka">
+          <mat-header-cell *matHeaderCellDef>Stoppage Distance From Dhaka</mat-header-cell>
+          <mat-cell *matCellDef="let stoppage">{{ stoppage.stoppageDistanceFromDhaka }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+          <mat-cell *matCellDef="let stoppage">{{ stoppage.name }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="address">
+          <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+          <mat-cell *matCellDef="let stoppage">{{ stoppage.address }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="latitude">
+          <mat-header-cell *matHeaderCellDef>Latitude</mat-header-cell>
+          <mat-cell *matCellDef="let stoppage">{{ stoppage.latitude }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="longitude">
+          <mat-header-cell *matHeaderCellDef>Longitude</mat-header-cell>
+          <mat-cell *matCellDef="let stoppage">{{ stoppage.longitude }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="applitude">
+          <mat-header-cell *matHeaderCellDef>Applitude</mat-header-cell>
+          <mat-cell *matCellDef="let stoppage">{{ stoppage.applitude }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="photo">
+          <mat-header-cell *matHeaderCellDef>Photo</mat-header-cell>
+          <mat-cell *matCellDef="let stoppage">
+            <img *ngIf="stoppage.photo" [src]="stoppage.photo" alt="Stoppage Photo" style="max-width: 100px; max-height: 100px;">
+          </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="order">
+          <mat-header-cell *matHeaderCellDef>Order</mat-header-cell>
+          <mat-cell *matCellDef="let stoppage">{{ stoppage.order }}</mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      
+</div>

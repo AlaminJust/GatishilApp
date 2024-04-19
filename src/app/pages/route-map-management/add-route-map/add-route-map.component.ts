@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, Subject, switchMap, takeWhile, tap } from 'rxjs';
 import { AllRouteResponse } from 'src/app/shared/api-models';
 import { IDropdown } from 'src/app/shared/models/dropdown.model';
 import { RouteMapService } from 'src/app/shared/services/route-map.service';
@@ -14,13 +15,18 @@ import { VehicleStoppageService } from 'src/app/shared/services/vehicle-stoppage
 export class AddRouteMapComponent {
   addOrUpdate!: FormGroup;
   dropdownItems!: IDropdown[];
-
+  load$: Subject<boolean> = new BehaviorSubject<boolean>(true);
   routes: AllRouteResponse[] = [];
+  isAlive: boolean = true;
+  isEditing: boolean = false;
+  editText$: Subject<string> = new BehaviorSubject<string>("Add");
+  selectedRoute?: AllRouteResponse;
 
   constructor(
     private fb: FormBuilder,
     private vehicleStoppageService: VehicleStoppageService,
-    private routeMapService: RouteMapService
+    private routeMapService: RouteMapService,
+    private router: Router
   ){
     this.createForm();
   }
@@ -31,10 +37,11 @@ export class AddRouteMapComponent {
           this.dropdownItems = x;
         }));
 
-    this.routeMapService.allRoutes()
-        .subscribe(x => {
+    this.load$.pipe(takeWhile(() => this.isAlive),
+        switchMap(() => this.routeMapService.allRoutes()))
+        .pipe(tap(x => {
           this.routes = x;
-        });
+        })).subscribe();
   }
 
   createForm(): void {
@@ -62,16 +69,42 @@ export class AddRouteMapComponent {
   }
 
   editRoute(route: AllRouteResponse): void {
+    this.addOrUpdate.patchValue(route);
+    this.isEditing = true;
+    this.editText$.next('Update');
+    this.selectedRoute = route;
+  }
 
+  addLocation(route: AllRouteResponse): void {
+    this.routeMapService.selectedVehicleRouteMap = {
+      routeMapId: route.id,
+      id: 0,
+      order: 0,
+      originId: route.originId,
+      destinationId: route.destinationId,
+      name: route.name
+    };
+
+    this.router.navigate(['route-map/add-route-location', route.id]);
   }
 
   onSubmit(): void{
     if(this.addOrUpdate.valid){
-      this.routeMapService.save(this.addOrUpdate.value)
-          .subscribe(x => {
-            this.routes.push(x);
-            this.routes.sort((a, b) => a.name.localeCompare(b.name));
-          });
+      if(this.isEditing && this.selectedRoute){
+        this.routeMapService.update(this.selectedRoute?.id, this.addOrUpdate.value)
+        .pipe(tap(x => {
+          this.load$.next(true);
+          this.isEditing = false;
+          this.editText$.next('Add');
+          this.selectedRoute = undefined;
+        })).subscribe();
+      }else{
+        this.routeMapService.save(this.addOrUpdate.value)
+        .subscribe(x => {
+          this.routes.push(x);
+          this.routes.sort((a, b) => a.name.localeCompare(b.name));
+        });
+      }
     }
   }
 }
