@@ -1,6 +1,11 @@
-import { PaginationRequest } from "../../models";
+import { PaginationOptions, PaginationRequest } from "../../models";
 
 export class VehiclePaginationRequest extends PaginationRequest{
+
+    constructor(options?: PaginationOptions){
+        super(options);
+    }
+
     private _search? : string;
     public get search() : string {
         return this._search ?? "";

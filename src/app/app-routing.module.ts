@@ -18,6 +18,7 @@ import { AddVehicleRouteMapComponent } from './pages/route-map-management/add-ve
 import { StoppageListComponent } from './pages/vehicle-stoppage-management/stoppage-list/stoppage-list.component';
 import { AddStoppageComponent } from './pages/vehicle-stoppage-management/add-stoppage/add-stoppage.component';
 import { AddVehicleComponent } from './pages/vehicle-management/add-vehicle/add-vehicle.component';
+import { UpdateVehicleComponent } from './pages/vehicle-management/update-vehicle/update-vehicle.component';
 
 const routes: Routes = [
   {
@@ -83,6 +84,10 @@ const routes: Routes = [
       {
         path: 'add-vehicle/:organizationId',
         component: AddVehicleComponent
+      },
+      {
+        path: 'update-vehicle/:organizationId',
+        component: UpdateVehicleComponent
       },
       {
         path: 'assign-stoppage/:vehicleId',

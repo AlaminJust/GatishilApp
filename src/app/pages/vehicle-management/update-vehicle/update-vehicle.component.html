@@ -1,0 +1,62 @@
+<form [formGroup]="addOrUpdate" (ngSubmit)="onUpdate()" class="form-container">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" formControlName="name">
+    </div>
+    
+    <div class="form-group">
+      <label for="aliceName">Alice Name</label>
+      <input type="text" formControlName="aliceName">
+    </div>
+    
+    <div class="form-group">
+      <label for="photo">Photo</label>
+      <input type="text" formControlName="photo">
+    </div>
+    
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" formControlName="address">
+    </div>
+    
+    <div class="form-group">
+      <label for="code">Code</label>
+      <input type="text" formControlName="code">
+    </div>
+    
+    <div class="form-group">
+      <label for="isPublic">Is Public</label>
+      <input type="checkbox" formControlName="isPublic">
+    </div>
+    
+    <div class="form-group">
+      <label for="schedule">Schedule</label>
+      <input type="text" formControlName="schedule">
+    </div>
+    
+    <div class="form-group">
+      <label for="route">Route</label>
+      <input type="text" formControlName="route">
+    </div>
+    
+    <div class="form-group">
+      <label for="vehicleType">Vehicle Type</label>
+      <select formControlName="vehicleType">
+        <option [ngValue]="VehicleTypes.Train">Train</option>
+        <option [ngValue]="VehicleTypes.Bus">Bus</option>
+        <option [ngValue]="VehicleTypes.Truck">Truck</option>
+        <option [ngValue]="VehicleTypes.Car">Car</option>
+        <option [ngValue]="VehicleTypes.Bike">Bike</option>
+        <option [ngValue]="VehicleTypes.Auto">Auto</option>
+        <option [ngValue]="VehicleTypes.Scooter">Scooter</option>
+        <option [ngValue]="VehicleTypes.Cycle">Cycle</option>
+        <option [ngValue]="VehicleTypes.Lorry">Lorry</option>
+        <option [ngValue]="VehicleTypes.Van">Van</option>
+        <option [ngValue]="VehicleTypes.Me">Me</option>
+        <option [ngValue]="VehicleTypes.Other">Other</option>
+      </select>
+    </div>
+    
+    <button type="submit" [disabled]="!addOrUpdate.valid">Submit</button>
+  </form>
+  

@@ -2,6 +2,12 @@ import { SortOrders } from "../../enums";
 
 export class PaginationRequest {
   private static readonly MaxPageSize: number = 50;
+
+  constructor(options?: PaginationOptions){
+    this.pageNumber = options?.pageNumber ?? 0;
+    this.pageSize = options?.pageSize ?? 0;
+  }
+
   private _pageNumber: number = 0;
   get pageNumber(): number {
     return this._pageNumber;
@@ -37,6 +43,11 @@ export class PaginationRequest {
   get offset(): number {
     return this.pageNumber * this.pageSize;
   }
+}
+
+export interface PaginationOptions {
+  pageSize?: number;
+  pageNumber?: number;
 }
 
 export interface PaginationResponse<T> {

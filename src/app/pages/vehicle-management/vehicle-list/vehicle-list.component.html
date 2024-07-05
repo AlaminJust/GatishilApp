@@ -5,7 +5,7 @@
         <button (click)="addVehicle()">Add vehicle</button>
       </div>
     </div>
-    <table mat-table [dataSource]="vehicles" class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -94,11 +94,16 @@
           <button mat-icon-button (click)="addVehicleRouteMap(vehicle)">
             <mat-icon>multiple_stop</mat-icon>
           </button>
+          <button mat-icon-button (click)="updateVehicle(vehicle)">
+            <mat-icon>update</mat-icon>
+          </button>
         </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    </mat-table>
+
+    <mat-paginator [length]="totalRecords" [pageSizeOptions]="[10, 20, 30]" (page)="onPaginateChange($event)" showFirstLastButtons></mat-paginator>
   </div>
   

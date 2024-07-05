@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { VehicleListComponent } from './pages/vehicle-management/vehicle-list/vehicle-list.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
@@ -33,6 +34,7 @@ import { AddVehicleRouteMapComponent } from './pages/route-map-management/add-ve
 import { StoppageListComponent } from './pages/vehicle-stoppage-management/stoppage-list/stoppage-list.component';
 import { AddStoppageComponent } from './pages/vehicle-stoppage-management/add-stoppage/add-stoppage.component';
 import { AddVehicleComponent } from './pages/vehicle-management/add-vehicle/add-vehicle.component';
+import { UpdateVehicleComponent } from './pages/vehicle-management/update-vehicle/update-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { AddVehicleComponent } from './pages/vehicle-management/add-vehicle/add-
     StoppageListComponent,
     AddStoppageComponent,
     AddVehicleComponent,
+    UpdateVehicleComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ import { AddVehicleComponent } from './pages/vehicle-management/add-vehicle/add-
     MatTableModule,
     MatIconModule,
     MatFormFieldModule,
+    MatPaginatorModule,
     MatButtonModule,
     MatInputModule
   ],

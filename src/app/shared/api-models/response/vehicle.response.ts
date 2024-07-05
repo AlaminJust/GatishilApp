@@ -13,6 +13,7 @@ export interface VehicleResponse {
     route?: string | null;
     totalMember: number;
     isPublic: boolean;
+    aliceName: string,
     vehicleType: VehicleTypes;
     vehicleStoppages?: VehicleStoppageResponse[] | null;
 }

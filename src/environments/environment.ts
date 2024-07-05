@@ -1,3 +1,3 @@
 export const environment = {
-    baseUrl: 'https://localhost:7137/api/'
+    baseUrl: 'https://gatishil.com/api/'
 };
