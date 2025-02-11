@@ -3,7 +3,8 @@ import { VehicleTypes } from "../../enums";
 export interface VehicleStoppageRequest {
     order: number,
     vehicleStoppageId: number,
-    vehicleId: number
+    vehicleId: number,
+    departure?: string | null;
 }
 
 export interface VehicleRouteMapRequest {

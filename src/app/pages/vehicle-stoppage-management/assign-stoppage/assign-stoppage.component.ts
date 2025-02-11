@@ -37,7 +37,8 @@ export class AssignStoppageComponent {
     this.addOrUpdate = this.fb.group({
       order: [0, Validators.required],
       vehicleStoppageId: [0, Validators.required],
-      vehicleId: [this.vehicleId, Validators.required]
+      vehicleId: [this.vehicleId, Validators.required],
+      departure: ['']
     });
   }
 

@@ -5,7 +5,7 @@ export class PaginationRequest {
 
   constructor(options?: PaginationOptions){
     this.pageNumber = options?.pageNumber ?? 0;
-    this.pageSize = options?.pageSize ?? 0;
+    this.pageSize = options?.pageSize ?? 10;
   }
 
   private _pageNumber: number = 0;

@@ -35,6 +35,8 @@ import { StoppageListComponent } from './pages/vehicle-stoppage-management/stopp
 import { AddStoppageComponent } from './pages/vehicle-stoppage-management/add-stoppage/add-stoppage.component';
 import { AddVehicleComponent } from './pages/vehicle-management/add-vehicle/add-vehicle.component';
 import { UpdateVehicleComponent } from './pages/vehicle-management/update-vehicle/update-vehicle.component';
+import { UpdateVehicleRouteComponent } from './shared/components/update-vehicle-route/update-vehicle-route.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { UpdateVehicleComponent } from './pages/vehicle-management/update-vehicl
     AddStoppageComponent,
     AddVehicleComponent,
     UpdateVehicleComponent,
+    UpdateVehicleRouteComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ import { UpdateVehicleComponent } from './pages/vehicle-management/update-vehicl
     MatFormFieldModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

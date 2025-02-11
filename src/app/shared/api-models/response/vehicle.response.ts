@@ -20,12 +20,15 @@ export interface VehicleResponse {
 
 export interface VehicleStoppageResponse {
     id: number;
+    vechileRouteId: number;
     stoppageDistanceFromDhaka: number;
+    vehicleStoppageId: number;
     name: string;
     address: string;
     latitude: number;
     longitude: number;
     applitude: number;
     photo?: string | null;
+    departure?: string;
     order: number;
 }
