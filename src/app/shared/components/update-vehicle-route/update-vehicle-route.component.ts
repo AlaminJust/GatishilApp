@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { VehicleRouteService } from '../../services/vehicle-route.service';
+import { tap } from 'rxjs';
 
 export interface VehicleUpdateRequest {
   vehicleRouteId: number;
@@ -21,7 +23,8 @@ export class UpdateVehicleRouteComponent {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<UpdateVehicleRouteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: VehicleUpdateRequest
+    @Inject(MAT_DIALOG_DATA) public data: VehicleUpdateRequest,
+    private vehicleRouteService: VehicleRouteService
   ) {
     this.vehicleForm = this.fb.group({
       order: [data.order, [Validators.required, Validators.min(1)]],
@@ -33,7 +36,10 @@ export class UpdateVehicleRouteComponent {
 
   onSubmit() {
     if (this.vehicleForm.valid) {
-      this.dialogRef.close(this.vehicleForm.value);
+      this.vehicleRouteService.update(this.data.vehicleRouteId, this.vehicleForm.value)
+          .pipe(tap(() => {
+            this.dialogRef.close(this.vehicleForm.value);
+          })).subscribe();
     }
   }
 
